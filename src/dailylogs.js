@@ -2,39 +2,31 @@ import React, { useState } from "react";
 import "/home/jdave1125/Weightr/src/dailylogs.css";
 
 function DailyLogForm() {
-  // State for storing weight and calorie input values
   const [weight, setWeight] = useState("");
   const [calories, setCalories] = useState("");
 
-  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Create a data object to send to the server
     const data = {
       weight,
       calories,
     };
 
     try {
-      // Make a POST request to your backend API to save the data
       const response = await fetch("http://localhost:3001/daily-logs", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data), // Convert data to JSON format
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {
-        // Data saved successfully, you can perform any necessary actions
         console.log("Data saved successfully");
-
-        // Reset the input fields after successful submission
         setWeight("");
         setCalories("");
       } else {
-        // Handle errors here, for example, display an error message
         console.error("Error while saving data");
       }
     } catch (error) {
