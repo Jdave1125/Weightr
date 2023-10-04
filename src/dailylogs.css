@@ -1,7 +1,73 @@
 *{
    font-family: 'Raleway', sans-serif; ;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
 }
 
+
+.app-container{
+    display: flex;
+    background-color: #f0f0f0;
+}
+
+.sidebar{
+    width: 15%;
+    background-color: #646464;
+    color:white;
+    padding:20px;
+}
+.sidebar h2{
+    font-size: 24px;
+    margin-bottom:200px;
+}
+
+.sidebar ul{
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    
+    align-items: center;
+}
+
+.sidebar a{
+    text-decoration: none;
+    color: #ecebeb;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 28px;
+    transition: text-shadow 0.3s ease, text-shadow-pulse 2s infinite;
+}
+
+.nav-item{
+    text-align: center;
+    transition:  color 0.3s ease, text-shadow-pulse 2s infinite;
+}
+
+@keyframes text-shadow-pulse {
+    0%{
+      text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+    50% {
+      text-shadow: 0 0 15px rgba(7, 50, 189, 0.993); /* Pulsate to a gold color */
+    }
+    100% {
+      text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+}
+
+.nav-item:hover{
+    color:gold;
+    animation: text-shadow-pulse 1s infinite;
+}
+.sidebar a:hover{
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    color: white;
+    animation: text-shadow-pulse 1s infinite;
+}
 .main-h1{
     text-align: left;
     font-size: 52px;
@@ -11,7 +77,12 @@
     /* text-shadow: 3px 2px 8px rgb(0, 0, 0), 0 0 0em rgb(0, 0, 0), 0 0 0.2em black; */
 }
 
-
+.main-container{
+    flex-grow: 1;
+    /* padding: 20px; */
+    margin: 0 auto;
+    height: 100vh;
+}
 /* .main-container{
     display: flex;
     background-color: #f0f0f0;
@@ -39,7 +110,7 @@
     border-radius: 7px;
     background-color: rgba(0, 0, 0, 0.521);
     color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
   }
   
   /* CSS for form groups (e.g., weight and calories input fields) */
@@ -81,8 +152,14 @@
   .week{
     border: 1px solid #ccc;
     margin: 20px;
-    padding: 20px;
+    padding: 25px;
     border-radius: 5px;
     background-color: #f8f8f8;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+
+  .log-separator{
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #ccc;
   }

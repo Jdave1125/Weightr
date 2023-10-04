@@ -39,6 +39,27 @@ function App() {
 }
  //main app structure -- pass down onLogSubmit prop which is the handleLogSubmit function
   return (
+    
+    <div className="app-container">
+        {authenticated && (
+            <div className="sidebar">
+                <h2>Navigation</h2>
+                <ul>
+                    <li><a href="#">Daily Log</a></li>
+                    <li><a href="#">Progress Photos</a></li>
+                    <li><a href="#">Excercise Log</a></li>
+                    <li><a href="#">Mental Notes</a></li>
+                    <li><a href="#">Useful Links</a></li>
+                </ul>
+    </div>
+  )}
+    
+    
+    
+    
+    
+    
+    
     <div className="main-container">
       
        {authenticated && (
@@ -57,7 +78,7 @@ function App() {
        
        )}
         {!authenticated && <Login onLogin={handleLogin} />}
-       
+       </div>
     </div>
   );
 }

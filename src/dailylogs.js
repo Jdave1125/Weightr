@@ -41,7 +41,7 @@ function DailyLogForm({onLogSubmit}) {
 
   return (  //render the form itself below
     <div className='daily-log-form'>
-      <h2>Daily Log</h2>
+      <h2>Daily Log: enter your daily weight and caloric intake here</h2>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
           <label htmlFor='weight'>Weight (lbs):</label>

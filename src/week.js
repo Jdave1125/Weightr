@@ -30,7 +30,7 @@ function calculateAverages(logs) {  //calc averages of a particular WEEK (logs =
     return (
       <div className="week">
         {logs.map((log, index) => ( //map over logs array (the week) and for each instance of a log(Logger comp), we render the log(Logger which displays weight/cals (look at log.js)) 
-          <Logger key={index} log={log} />
+          <Logger key={index} log={log}/>
         ))} 
         {isFullWeek && (
           <div className="averages">  

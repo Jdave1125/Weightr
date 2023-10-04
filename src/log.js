@@ -5,6 +5,7 @@ function logger({ log }) { //render log div  --> this is what we see when we sub
     <div className="daily-log">   
       <p>Weight (lbs): {log.weight}</p>
       <p>Calories: {log.calories}</p>
+      <hr className="log-separator" />
     </div>
   );
 }
