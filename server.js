@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => {
   res.send("Welcome to Weightr App"); // You can customize this response
 });
+
 // Register a new user
 app.post("/register", async (req, res) => {
   const { username, password } = req.body;
@@ -55,6 +56,44 @@ app.post("/register", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+
+
+//LOGIN
+app.post("/login", async (req, res) => {
+    const { username, password } = req.body;
+  
+    try {
+      // Check if the user exists in the database
+      const user = await pool.query("SELECT * FROM users WHERE username = $1", [
+        username,
+      ]);
+  
+      if (user.rows.length === 0) {
+        return res.status(401).json({ message: "Authentication failed" });
+      }
+  
+      // Verify the password (compare with the hashed password)
+      const passwordMatch = await bcrypt.compare(
+        password,
+        user.rows[0].password
+      );
+  
+      if (!passwordMatch) {
+        return res.status(401).json({ message: "Authentication failed" });
+      }
+  
+      // Generate a JWT token for the authenticated user
+      const token = jwt.sign({ username }, secretKey, { expiresIn: "1h" });
+  
+      res.json({ message: "Authentication successful", token });
+    } catch (error) {
+      console.error("Error during login:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+
 
 // this is for logging submission
 app.post("/daily-logs", async (req, res) => {

@@ -1,0 +1,91 @@
+body{
+    margin: 0;
+    padding:0;
+}
+
+
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: hsla(209, 93%, 26%, 1);
+    background: linear-gradient(90deg, hsla(209, 93%, 26%, 1) 11%, hsla(255, 19%, 12%, 1) 68%);
+    color: white;
+  }
+  
+  /* Style for the Weightr header */
+  .header-container{
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 76px;
+    margin-right: 20px;
+  }
+
+  h3{
+    color: grey;
+    /* border: 3px solid red; */
+    padding-left: 104px;
+    margin-bottom: 45px;
+  }
+  
+  /* Style for the login container (login form) */
+  .login-container {
+    width: 400px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    
+  }
+  
+  /* Style for the login form elements */
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  label {
+    margin-left: 60px;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: white;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    margin-bottom: 25px;
+    margin-left:10px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+
+  input[type="password"]{
+    margin-left:15px
+  }
+  
+  button {
+    background-color: #003266;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }

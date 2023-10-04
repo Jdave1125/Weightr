@@ -2,6 +2,35 @@
    font-family: 'Raleway', sans-serif; ;
 }
 
+.main-h1{
+    text-align: left;
+    font-size: 52px;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: rgb(2, 2, 163);
+    /* text-shadow: 3px 2px 8px rgb(0, 0, 0), 0 0 0em rgb(0, 0, 0), 0 0 0.2em black; */
+}
+
+
+/* .main-container{
+    display: flex;
+    background-color: #f0f0f0;
+} */
+
+/* .nav-bar{
+    width: 20%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+} */
+.logout{
+    margin-left: 20px;
+}
+.main-content{
+    width: 80%;
+    padding: 20px;
+    margin:0 auto;
+}
 .daily-log-form {
     text-align: center;
     margin: 20px;
@@ -10,6 +39,7 @@
     border-radius: 7px;
     background-color: rgba(0, 0, 0, 0.521);
     color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
   }
   
   /* CSS for form groups (e.g., weight and calories input fields) */
@@ -21,6 +51,7 @@
   .form-group label {
     display: block;
     font-weight: bold;
+    margin-left: 10px;
   }
   
   /* CSS for input fields */
@@ -53,4 +84,5 @@
     padding: 20px;
     border-radius: 5px;
     background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
   }
