@@ -4,8 +4,9 @@ import Week from "./week";
 
 function App() {
   const [weeklyLogs, setWeeklyLogs] = useState([[]]);
-
-  const handleLogSubmit = (log) => {
+  //init weeklyLogs to an empty array
+  const handleLogSubmit = (log) => { //log here ref to the submitted data in our dailyLogs.js (think of the flow (onLogSubmit))
+    //handle log submissions -> dependent on length of week, once the week is full(7) we need a new week
     const { weight, calories } = log; //extract just the weight and calories from each log
 
     if (weeklyLogs[0].length < 7) { //if the week is less than 7 entries(days)
@@ -23,14 +24,14 @@ function App() {
     // <DailyLogForm onLogSubmit={handleLogSubmit} />;
   };
 }
-
+ //main app structure -- pass down onLogSubmit prop which is the handleLogSubmit function
   return (
     <div>
       <h1>Weightr - Your Weight and Calorie Tracker</h1>
 
       <DailyLogForm onLogSubmit={handleLogSubmit} />
       {weeklyLogs.map((week, index) => {
-        return <Week key={index} logs={week} />;
+        return <Week key={index} logs={week} />; //map thru weeklylogs state, render week for each week of logs
       })}
     </div>
   );

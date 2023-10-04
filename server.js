@@ -36,7 +36,7 @@ app.post("/register", async (req, res) => {
     }
 
     console.log("password", password);
-    // Hash the password (you can use a library like bcrypt for this)
+    // Hash the password
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
@@ -56,7 +56,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// Login an existing user
+// this is for logging submission
 app.post("/daily-logs", async (req, res) => {
   const { weight, calories } = req.body;
 
@@ -101,7 +101,6 @@ app.get("/daily-logs", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
-
 
 // Start the server
 app.listen(port, () => {
