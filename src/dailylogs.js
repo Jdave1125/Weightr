@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "/home/jdave1125/Weightr/src/dailylogs.css";
 
-function DailyLogForm() {
+function DailyLogForm({onLogSubmit}) {
   const [weight, setWeight] = useState("");
   const [calories, setCalories] = useState("");
 
@@ -14,7 +14,7 @@ function DailyLogForm() {
     };
 
     try {
-      const response = await fetch("http://localhost:3001/daily-logs", {
+      const response = await fetch("http://localhost:3001/daily-logs", { //send req to daily-logs
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,6 +26,7 @@ function DailyLogForm() {
         console.log("Data saved successfully");
         setWeight("");
         setCalories("");
+        onLogSubmit(data)
       } else {
         console.error("Error while saving data");
       }

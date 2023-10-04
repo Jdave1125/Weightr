@@ -1,10 +1,15 @@
+*{
+   font-family: 'Raleway', sans-serif; ;
+}
+
 .daily-log-form {
     text-align: center;
     margin: 20px;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f8f8f8;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.521);
+    color: white;
   }
   
   /* CSS for form groups (e.g., weight and calories input fields) */
@@ -40,4 +45,12 @@
   /* Hover effect for the Submit button */
   .form-group button[type="submit"]:hover {
     background-color: #0056b3;
+  }
+
+  .week{
+    border: 1px solid #ccc;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
   }
