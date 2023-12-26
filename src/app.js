@@ -24,18 +24,31 @@ function App() {
 
     if (weeklyLogs[0].length < 7) { //if the week is less than 7 entries(days)
       setWeeklyLogs((prevWeeks) => { 
-        const currentWeek = [...prevWeeks[0], {weight,calories}];
+        const currentWeek = [...prevWeeks[0], { id:generateId(),weight,calories}];
         console.log("updated:",currentWeek)
         return [currentWeek, ...prevWeeks.slice(1)];
       });
     } else {
       setWeeklyLogs((prevWeeks) => {
-        const newWeek = [{weight,calories}];
+        const newWeek = [{ id:generateId(),weight,calories}];
         console.log('updated new week:',newWeek);
         return [newWeek, ...prevWeeks]
       });
     // <DailyLogForm onLogSubmit={handleLogSubmit} />;
   };
+}
+
+const generateId = () =>{
+  return Math.random().toString(36).substring(7);
+}
+
+const handleDelete = (logId) => {
+  setWeeklyLogs((prevWeeks) =>{
+    const updated = prevWeeks.map((week) =>{
+      return week.filter((log) => log.id !== logId);
+    })
+    return updated
+  })
 }
  //main app structure -- pass down onLogSubmit prop which is the handleLogSubmit function
   return (
@@ -70,7 +83,7 @@ function App() {
              
             <DailyLogForm onLogSubmit={handleLogSubmit} />
             {weeklyLogs.map((week, index) => {
-                return <Week key={index} logs={week} />; //map thru weeklylogs state, render week for each week of logs
+                return <Week key={index} logs={week} onDelete={handleDelete} />; //map thru weeklylogs state, render week for each week of logs
              })}
               <button className='logout' onClick={handleLogout}>Logout</button> 
          </div>

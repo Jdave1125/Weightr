@@ -20,7 +20,7 @@ function calculateAverages(logs) {  //calc averages of a particular WEEK (logs =
   }
   
   //function component
-  function Week({ logs }) {  //logs prop -> daily logs for a week (array)
+  function Week({ logs, onDelete }) {  //logs prop -> daily logs for a week (array)
     // Check if the week meets capacity
     const isFullWeek = logs.length === 7;
   
@@ -30,7 +30,7 @@ function calculateAverages(logs) {  //calc averages of a particular WEEK (logs =
     return (
       <div className="week">
         {logs.map((log, index) => ( //map over logs array (the week) and for each instance of a log(Logger comp), we render the log(Logger which displays weight/cals (look at log.js)) 
-          <Logger key={index} log={log}/>
+          <Logger key={index} log={log} onDelete={onDelete}/>
         ))} 
         {isFullWeek && (
           <div className="averages">  
